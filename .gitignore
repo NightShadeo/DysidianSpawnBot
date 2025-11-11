@@ -1,0 +1,5 @@
+# Ignore secrets and logs
+.env
+discord.log
+__pycache__/
+*.pyc
