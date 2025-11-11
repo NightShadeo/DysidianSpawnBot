@@ -1,3 +1,19 @@
+# ---- KEEP ALIVE FOR RENDER ----
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+Thread(target=run).start()
+# ---- END KEEP ALIVE ----
+
 import discord
 from discord.ext import commands, tasks
 import random
@@ -47,7 +63,7 @@ async def pokemon_spawning(server_id: int):
         return
     
     print(f"[{server_id}] ✅ Pokemon are spawning in {channel}")
-    
+
     await asyncio.sleep(random.uniform(0, 0.5))
 
     next_time = asyncio.get_event_loop().time()
