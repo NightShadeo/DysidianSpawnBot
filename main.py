@@ -22,6 +22,8 @@ import logging
 from dotenv import load_dotenv
 import os
 
+logging.basicConfig(level=logging.DEBUG)
+
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
 
@@ -138,4 +140,4 @@ async def on_message(message):
 async def on_ready():
     print(f"✅ Ready to spawn as {bot.user}")
 
-bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+bot.run(token)
